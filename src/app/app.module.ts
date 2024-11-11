@@ -8,6 +8,8 @@ import { CategoryComponent } from './category/category.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { TransactionComponent } from './transactions/transaction/transaction.component';
 import { TransactionService } from './transactions/transaction.service';
+import { CategoryService } from './category/category.service';
+import { AddCategoryComponent } from './category/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,17 @@ import { TransactionService } from './transactions/transaction.service';
     HeaderComponent,
     CategoryComponent,
     TransactionsComponent,
-    TransactionComponent
+    TransactionComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [TransactionService],
+  providers: [
+    TransactionService,
+    CategoryService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

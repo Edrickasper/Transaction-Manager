@@ -1,14 +1,17 @@
-<h1 
-class="mx-auto my-4 w-9/12 font-semibold text-base mb-2"
-*ngIf="this.transactionService.checkDate(transaction)"
->{{ transaction.date }}</h1>
-<div class="flex flex-col items-center">
-    <ul class="w-3/5">
-        <li 
-        class=" border-2 border-solid border-black rounded-full py-2 px-10 my-2 relative">
-            <h3 class = "font-medium">{{ transaction.category }}</h3>
-            <p>{{ transaction.note }}</p>
-            <span class="absolute right-10 top-5">{{ transaction.amount }}</span>
-        </li>
-    </ul>
+<div
+*ngFor="let transaction of transactions">
+    <h1 
+    class="mx-auto my-4 w-9/12 font-semibold text-lg mb-2"
+    *ngIf = "checkDate(transaction)"
+    >{{ transaction.date }}</h1>
+    <div class="flex flex-col items-center">
+        <ul class="w-3/5">
+            <li 
+            class=" border-2 border-solid border-black rounded-full py-2 px-10 my-2 relative">
+                <h3 class = "font-medium">{{ transaction.category }}</h3>
+                <p>{{ transaction.note }}</p>
+                <span class="absolute right-10 top-5">{{ formatCur(transaction.amount) }}</span>
+            </li>
+        </ul>
+    </div>
 </div>
