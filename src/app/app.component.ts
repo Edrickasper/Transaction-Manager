@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { AuthenticationService } from './authentication/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  authService = inject(AuthenticationService)
   title = 'transaction-manager';
+  @Input() isLoggedin = false
 }
