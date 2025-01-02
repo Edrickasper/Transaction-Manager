@@ -4,10 +4,11 @@ import { AuthenticationService } from './authentication/authentication.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  standalone: false,
 })
 export class AppComponent {
-  authService = inject(AuthenticationService)
+  authService = inject(AuthenticationService);
   title = 'transaction-manager';
-  @Input() isLoggedin = false
+  @Input() isLoggedin = false;
 }

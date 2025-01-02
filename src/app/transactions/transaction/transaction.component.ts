@@ -6,15 +6,15 @@ import { TransactionService } from '../transaction.service';
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
-  styleUrl: './transaction.component.css'
+  styleUrl: './transaction.component.css',
+  standalone: false,
 })
-export class TransactionComponent  implements OnInit{
+export class TransactionComponent implements OnInit {
+  transactions!: Transaction[];
 
-  transactions!: Transaction[]
+  private prevDate: string = '';
 
-  private prevDate: string = ''
-
-  private transactionService = inject(TransactionService)
+  private transactionService = inject(TransactionService);
 
   ngOnInit() {
     this.transactions = this.transactionService.getTransactions();
@@ -35,5 +35,5 @@ export class TransactionComponent  implements OnInit{
       style: 'currency',
       currency: 'INR',
     }).format(value);
-}
+  }
 }

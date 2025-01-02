@@ -6,7 +6,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,19 +16,20 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { TransactionComponent } from './transactions/transaction/transaction.component';
 import { TransactionService } from './transactions/transaction.service';
 import { CategoryService } from './categories/category.service';
-import { AddCategoryComponent } from './categories/add-category/add-category.component';
+import { CategoryPopupComponent } from './categories/category-popup/category-popup.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthenticationService } from './authentication/authentication.service';
-import { provideHttpClient } from '@angular/common/http';
+import { AddTransactionComponent } from './transactions/add-transaction/add-transaction.component';
+import { CategoryComponent } from './categories/category/category.component';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAlLdQGuzevgfJiJ-32vFyeevwdAjm11_w",
-  authDomain: "transaction-manager-ae91b.firebaseapp.com",
-  projectId: "transaction-manager-ae91b",
-  storageBucket: "transaction-manager-ae91b.firebasestorage.app",
-  messagingSenderId: "918381907162",
-  appId: "1:918381907162:web:e1cf8e746bdd90797429e3"
+  apiKey: 'AIzaSyAlLdQGuzevgfJiJ-32vFyeevwdAjm11_w',
+  authDomain: 'transaction-manager-ae91b.firebaseapp.com',
+  projectId: 'transaction-manager-ae91b',
+  storageBucket: 'transaction-manager-ae91b.firebasestorage.app',
+  messagingSenderId: '918381907162',
+  appId: '1:918381907162:web:e1cf8e746bdd90797429e3',
 };
 
 @NgModule({
@@ -38,17 +39,17 @@ const firebaseConfig = {
     CategoriesComponent,
     TransactionsComponent,
     TransactionComponent,
-    AddCategoryComponent,
+    CategoryPopupComponent,
     RegisterComponent,
     LoginComponent,
     AddTransactionComponent,
-    CategoryComponent
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [
     TransactionService,
@@ -58,9 +59,8 @@ const firebaseConfig = {
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     AuthenticationService,
-    provideAnimationsAsync('noop')
-    
+    provideAnimationsAsync('noop'),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -4,19 +4,16 @@ import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-add-transaction',
   templateUrl: './add-transaction.component.html',
-  styleUrl: './add-transaction.component.css'
+  styleUrl: './add-transaction.component.css',
+  standalone: false,
 })
 export class AddTransactionComponent {
-  @Input() openPopup!: boolean
-  @Output() closePopup = new EventEmitter<boolean>()
+  @Input() openPopup!: boolean;
+  @Output() closePopup = new EventEmitter<boolean>();
 
-  fb = inject(FormBuilder)
+  fb = inject(FormBuilder);
 
-  addTransaction = this.fb.nonNullable.group({
-    
-  })
+  addTransaction = this.fb.nonNullable.group({});
 
-  onSubmit() {
-
-  }
+  onSubmit() {}
 }

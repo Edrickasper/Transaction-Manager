@@ -6,12 +6,13 @@ import { TransactionService } from './transaction.service';
 @Component({
   selector: 'app-transactions',
   templateUrl: './transactions.component.html',
-  styleUrl: './transactions.component.css'
+  styleUrl: './transactions.component.css',
+  standalone: false,
 })
 export class TransactionsComponent {
-  addTransaction: boolean = false
+  addTransaction: boolean = false;
 
-  private transactionService = inject(TransactionService)
+  private transactionService = inject(TransactionService);
 
   public today = new Date().toString();
 }

@@ -7,29 +7,34 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
+  standalone: false,
 })
 export class LoginComponent {
-  fb = inject(FormBuilder)
-  authService = inject(AuthenticationService)
-  router = inject(Router)
+  fb = inject(FormBuilder);
+  authService = inject(AuthenticationService);
+  router = inject(Router);
 
   login = this.fb.nonNullable.group({
-    email: ['', {
-      validators: [Validators.required, Validators.email]
-    }],
-    password: ['', {
-      validators: [Validators.required]
-    }]
-  })
+    email: [
+      '',
+      {
+        validators: [Validators.required, Validators.email],
+      },
+    ],
+    password: [
+      '',
+      {
+        validators: [Validators.required],
+      },
+    ],
+  });
 
   onSubmit() {
     const form = this.login.getRawValue();
-    this.authService
-    .login(form.email, form.password)
-    .subscribe({
+    this.authService.login(form.email, form.password).subscribe({
       next: () => {
-        this.router.navigateByUrl('/categories')
-      }
-    })
+        this.router.navigateByUrl('/categories');
+      },
+    });
   }
 }
