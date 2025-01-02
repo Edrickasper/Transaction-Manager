@@ -24,7 +24,7 @@ import { AddTransactionComponent } from './transactions/add-transaction/add-tran
 import { CategoryComponent } from './categories/category/category.component';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAlLdQGuzevgfJiJ-32vFyeevwdAjm11_w',
+  apiKey: /* API key */,
   authDomain: 'transaction-manager-ae91b.firebaseapp.com',
   projectId: 'transaction-manager-ae91b',
   storageBucket: 'transaction-manager-ae91b.firebasestorage.app',
