@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CategoryComponent } from './category/category.component';
+import { CategoriesComponent } from './categories/categories.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 
 const routes: Routes = [
-  {path: 'categories', component: CategoryComponent},
+  {path: 'categories', component: CategoriesComponent},
   {path: 'transactions', component: TransactionsComponent},
   {path: 'recurring', component: TransactionsComponent},
   {path: 'trash', component: TransactionsComponent},

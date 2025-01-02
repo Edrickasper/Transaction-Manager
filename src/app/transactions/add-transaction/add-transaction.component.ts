@@ -1,39 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Transaction } from '../../models/transaction.model';
-import { TransactionService } from '../transaction.service';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-transaction',
   templateUrl: './add-transaction.component.html',
   styleUrl: './add-transaction.component.css'
 })
-export class AddTransactionComponent  implements OnInit{
+export class AddTransactionComponent {
+  @Input() openPopup!: boolean
+  @Output() closePopup = new EventEmitter<boolean>()
 
-  transactions!: Transaction[]
+  fb = inject(FormBuilder)
 
-  private prevDate: string = ''
+  addTransaction = this.fb.nonNullable.group({
+    
+  })
 
-  constructor(public transactionService: TransactionService) {}
+  onSubmit() {
 
-  ngOnInit() {
-    this.transactions = this.transactionService.getTransactions();
   }
-
-  checkDate(transaction: Transaction) {
-    if (this.prevDate !== transaction.date) {
-      this.prevDate = transaction.date;
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  formatCur(value: number) {
-    const locale = navigator.language;
-    return new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency: 'INR',
-    }).format(value);
-}
 }

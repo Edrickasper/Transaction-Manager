@@ -1,17 +1,14 @@
-<div
-*ngFor="let transaction of transactions">
-    <h1 
-    class="mx-auto my-4 w-9/12 font-semibold text-lg mb-2"
-    *ngIf = "checkDate(transaction)"
-    >{{ transaction.date }}</h1>
-    <div class="flex flex-col items-center">
-        <ul class="w-3/5">
-            <li 
-            class="border-2 border-black rounded-2xl py-2 px-10 my-2 relative">
-                <h3 class = "font-medium">{{ transaction.category }}</h3>
-                <p>{{ transaction.note }}</p>
-                <span class="absolute right-10 top-5">{{ formatCur(transaction.amount) }}</span>
-            </li>
-        </ul>
+<section class="flex w-full h-screen absolute top-0 left-0 bg-gray-400 bg-opacity-50" *ngIf="openPopup">
+    <div class="m-auto h-3/4 w-2/5 bg-white relative rounded-2xl">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 absolute right-6 top-6 cursor-pointer"
+        (click)="this.closePopup.emit()">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+
+        <form class="flex flex-col w-3/4 mt-20 m-auto" [formGroup]="addTransaction" (ngSubmit)="onSubmit()">
+            
+            <!-- Submit -->
+            <button class="font-bold rounded-lg text-xl w-32 h-14 bg-[#fb923c] text-white justify-center absolute bottom-6 right-6" type="submit">Add</button>
+        </form>
     </div>
-</div>
+</section>
