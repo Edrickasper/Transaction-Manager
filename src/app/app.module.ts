@@ -20,8 +20,7 @@ import { AddCategoryComponent } from './categories/add-category/add-category.com
 import { RegisterComponent } from './authentication/register/register.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthenticationService } from './authentication/authentication.service';
-import { AddTransactionComponent } from './transactions/add-transaction/add-transaction.component';
-import { CategoryComponent } from './categories/category/category.component';
+import { provideHttpClient } from '@angular/common/http';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAlLdQGuzevgfJiJ-32vFyeevwdAjm11_w",
