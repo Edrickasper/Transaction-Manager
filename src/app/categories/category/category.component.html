@@ -1,0 +1,15 @@
+<ul class="grid grid-cols-5 mt-4">
+    <li 
+    class="flex items-center relative my-4 m-auto p-8 rounded-2xl w-64 border shadow-xl border-gray-400 text-2xl font-bold text-[#374151] cursor-pointer"
+    *ngFor="let category of categories"
+    (click)="this.addCategory = true">
+        <img src="custom-assets/expense.svg" alt="expense" class="size-12 p-2" *ngIf="category.type === 'expense'">
+        <img src="custom-assets/income.svg" alt="income" class="size-12 p-2" *ngIf="category.type === 'income'">
+        {{ category.name }}
+        <span 
+        *ngIf="category.favourite">
+            <img src="custom-assets/favorite.svg" alt="favorite" class="absolute -translate-y-2/4 right-12 size-5">
+        </span>
+    </li>
+</ul>
+<app-add-category (closePopup)="this.addCategory = false" [openPopup]="this.addCategory"></app-add-category>

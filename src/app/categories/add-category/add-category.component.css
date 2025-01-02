@@ -11,6 +11,11 @@
     @apply bg-[#fb923c] text-white
 }
 
+#type-1:checked ~ .type-1 > img, 
+#type-2:checked ~ .type-2 > img {
+    filter: invert(1)
+}
+
 #red:checked ~ .red-lab,
 #blue:checked ~ .blue-lab,
 #green:checked ~ .green-lab {
